@@ -1,0 +1,14 @@
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\LocalizaArquivo.exe.config
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\LocalizaArquivo.exe
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\LocalizaArquivo.pdb
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.Form1.resources
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.Properties.Resources.resources
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.csproj.GenerateResource.Cache
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.csproj.CoreCompileInputs.cache
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.exe
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.pdb
+c:\users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\obj\Debug\LocalizaArquivo.csprojResolveAssemblyReference.cache
+C:\Users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\System.Security.AccessControl.dll
+C:\Users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\System.Security.Permissions.dll
+C:\Users\leona\source\repos\LocalizaArquivo\LocalizaArquivo\bin\Debug\System.Security.Principal.Windows.dll
