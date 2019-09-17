@@ -9,10 +9,6 @@ namespace LocalizaArquivo.Util
 {
     public class Caminho
     {
-        public String Inicio= ConfigurationManager.AppSettings["CaminhoInicio"];
-        public String Diretorio= ConfigurationManager.AppSettings["CaminhoDiretorio"];
-        public String Pasta= ConfigurationManager.AppSettings["CaminhoPasta"];
-
 
 
 

@@ -33,9 +33,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelTotalDeArquivos = new System.Windows.Forms.Label();
             this.botaoLocaliza = new System.Windows.Forms.Button();
-            this.listResultado = new System.Windows.Forms.ListBox();
             this.comboPastas = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.mensagemLabel = new System.Windows.Forms.Label();
+            this.listViewResultado = new System.Windows.Forms.ListView();
+            this.columLinguagem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columArquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.folderBrowserPasta = new System.Windows.Forms.FolderBrowserDialog();
+            this.buttonEscolhePasta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -54,6 +59,7 @@
             this.textoArquivo.Name = "textoArquivo";
             this.textoArquivo.Size = new System.Drawing.Size(176, 20);
             this.textoArquivo.TabIndex = 3;
+            this.textoArquivo.Click += new System.EventHandler(this.textoArquivo_Click);
             this.textoArquivo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textoArquivo_KeyDown);
             // 
             // label3
@@ -84,18 +90,6 @@
             this.botaoLocaliza.UseVisualStyleBackColor = false;
             this.botaoLocaliza.Click += new System.EventHandler(this.botaoLocaliza_Click);
             // 
-            // listResultado
-            // 
-            this.listResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listResultado.FormattingEnabled = true;
-            this.listResultado.HorizontalScrollbar = true;
-            this.listResultado.ItemHeight = 16;
-            this.listResultado.Location = new System.Drawing.Point(78, 142);
-            this.listResultado.Name = "listResultado";
-            this.listResultado.Size = new System.Drawing.Size(614, 164);
-            this.listResultado.TabIndex = 10;
-            this.listResultado.DoubleClick += new System.EventHandler(this.listResultado_DoubleClick);
-            // 
             // comboPastas
             // 
             this.comboPastas.FormattingEnabled = true;
@@ -104,6 +98,7 @@
             this.comboPastas.Size = new System.Drawing.Size(121, 21);
             this.comboPastas.TabIndex = 11;
             this.comboPastas.SelectedIndexChanged += new System.EventHandler(this.comboPastas_SelectedIndexChanged);
+            this.comboPastas.Click += new System.EventHandler(this.comboPastas_Click);
             // 
             // label1
             // 
@@ -114,15 +109,66 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Pastas";
             // 
+            // mensagemLabel
+            // 
+            this.mensagemLabel.AutoSize = true;
+            this.mensagemLabel.Location = new System.Drawing.Point(111, 73);
+            this.mensagemLabel.Name = "mensagemLabel";
+            this.mensagemLabel.Size = new System.Drawing.Size(0, 13);
+            this.mensagemLabel.TabIndex = 13;
+            // 
+            // listViewResultado
+            // 
+            this.listViewResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewResultado.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columLinguagem,
+            this.columArquivo});
+            this.listViewResultado.FullRowSelect = true;
+            this.listViewResultado.GridLines = true;
+            this.listViewResultado.Location = new System.Drawing.Point(12, 172);
+            this.listViewResultado.Name = "listViewResultado";
+            this.listViewResultado.Size = new System.Drawing.Size(695, 275);
+            this.listViewResultado.TabIndex = 14;
+            this.listViewResultado.UseCompatibleStateImageBehavior = false;
+            this.listViewResultado.View = System.Windows.Forms.View.Details;
+            this.listViewResultado.DoubleClick += new System.EventHandler(this.listViewResultado_DoubleClick);
+            // 
+            // columLinguagem
+            // 
+            this.columLinguagem.DisplayIndex = 1;
+            this.columLinguagem.Text = "Linguagem";
+            this.columLinguagem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columLinguagem.Width = 370;
+            // 
+            // columArquivo
+            // 
+            this.columArquivo.DisplayIndex = 0;
+            this.columArquivo.Text = "Arquivo";
+            this.columArquivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columArquivo.Width = 429;
+            // 
+            // buttonEscolhePasta
+            // 
+            this.buttonEscolhePasta.Location = new System.Drawing.Point(571, 73);
+            this.buttonEscolhePasta.Name = "buttonEscolhePasta";
+            this.buttonEscolhePasta.Size = new System.Drawing.Size(121, 23);
+            this.buttonEscolhePasta.TabIndex = 15;
+            this.buttonEscolhePasta.Text = "button1";
+            this.buttonEscolhePasta.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(719, 331);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(719, 459);
+            this.Controls.Add(this.buttonEscolhePasta);
+            this.Controls.Add(this.listViewResultado);
+            this.Controls.Add(this.mensagemLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboPastas);
-            this.Controls.Add(this.listResultado);
             this.Controls.Add(this.botaoLocaliza);
             this.Controls.Add(this.labelTotalDeArquivos);
             this.Controls.Add(this.label3);
@@ -142,9 +188,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelTotalDeArquivos;
         private System.Windows.Forms.Button botaoLocaliza;
-        private System.Windows.Forms.ListBox listResultado;
         private System.Windows.Forms.ComboBox comboPastas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label mensagemLabel;
+        private System.Windows.Forms.ListView listViewResultado;
+        public System.Windows.Forms.ColumnHeader columLinguagem;
+        public System.Windows.Forms.ColumnHeader columArquivo;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserPasta;
+        private System.Windows.Forms.Button buttonEscolhePasta;
     }
 }
 

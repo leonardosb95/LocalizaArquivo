@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocalizaArquivo.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,14 +10,14 @@ namespace LocalizaArquivo.Controllers
 {
     public class LocalizaPastasController
     {
-        public void LocalizaPastas(string caminho, List<string> Pastas)
+        public static void LocalizaPastas(string caminho)
         {
             DirectoryInfo diretorios = new DirectoryInfo(caminho);
             DirectoryInfo[] subPastas = diretorios.GetDirectories();
 
             foreach (var item in subPastas)
             {
-                Pastas.Add(Convert.ToString(item));
+                filesModel.listaDePastas.Add(Convert.ToString(item));
             }
 
         }

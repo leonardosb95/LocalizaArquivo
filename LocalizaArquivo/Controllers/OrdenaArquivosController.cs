@@ -9,18 +9,18 @@ namespace LocalizaArquivo.Controllers
 {
     public class OrdenaArquivosController
     {
-        public IEnumerable<string> OrdernaPalavras(List<string> listaArquivos)
+        public  IEnumerable<FileInfo> OrdernaPalavras(List<FileInfo> listaArquivos)
         {
-            var ordernar = from c in listaArquivos orderby c.Substring(0, 1)  select c;
+            var ordernar = from c in listaArquivos orderby c.FullName.Substring(0, 1)  select c;
             var listar = ordernar.Distinct().ToList();
 
             return listar;
 
         }
 
-        public IEnumerable<FileInfo> OrdernaPalavras(FileInfo[] listaArquivos)
+        public IEnumerable<String> OrdernaPalavras(List<string> listaDePastas)
         {
-            var ordernar = from c in listaArquivos orderby c.ToString().Substring(0,1) select c;
+            var ordernar = from c in listaDePastas orderby c.ToString().Substring(0,1) select c;
             var listar = ordernar.Distinct().ToList();
 
             return listar;
