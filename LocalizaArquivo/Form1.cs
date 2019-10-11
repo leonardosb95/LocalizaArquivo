@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocalizaArquivo
@@ -34,9 +35,9 @@ namespace LocalizaArquivo
             InitializeComponent();
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
             labelTotalDeArquivos.Text = Convert.ToString(0);
 
             //DIRETORIOS 
@@ -45,26 +46,23 @@ namespace LocalizaArquivo
 
 
 
-            //Carrega arquivos
-
-            getFileUtil.getArquivo(acessoDiretorios);
-
-
-
-
             foreach (var item in ordena.OrdernaPalavras(filesModel.listaDePastas))
             {
                 comboPastas.Items.Add(item.ToUpper());
             }
-
         }
-
-
-
 
 
         private async void botaoLocaliza_Click(object sender, EventArgs e)
         {
+            string acessoDiretorios = Inicio + Diretorio + Pasta;
+            getFileUtil get = new getFileUtil();
+
+
+            //Carrega lista de arquivos
+            get.getArquivo();
+
+
             //VARIAVEIS
             filesModel.listaArquivosEncontrados.Clear();
             listViewResultado.Items.Clear();
@@ -90,20 +88,32 @@ namespace LocalizaArquivo
 
 
 
+                    //foreach (var item in filesModel.listaArquivosEncontrados)
+                    //{
+
+
+                    //    if (item.FullName.Contains("Linguagens".ToLower()))
+                    //    {
+                    //        linguagem = item.FullName.Substring(1).Split(spearator);
+                    //        ListViewItem list = new ListViewItem(linguagem[5]);
+                    //        list.SubItems.Add(item.Name);
+                    //        listViewResultado.Items.Add(list);
+                    //    }
+
+
+                    //}
+
+
+
+
                     foreach (var item in filesModel.listaArquivosEncontrados)
                     {
-
-
-                        if (item.FullName.Contains("Linguagens".ToLower()))
-                        {
-                            linguagem = item.FullName.Substring(1).Split(spearator);
-                            ListViewItem list = new ListViewItem(linguagem[5]);
-                            list.SubItems.Add(item.Name);
-                            listViewResultado.Items.Add(list);
-                        }
-
+                        ListViewItem list = new ListViewItem(item.Name);
+                        list.SubItems.Add(item.Name);
+                        listViewResultado.Items.Add(list);
 
                     }
+
                 }
                 else
                 {
@@ -151,9 +161,6 @@ namespace LocalizaArquivo
                     }
 
                 }
-
-
-
             }
         }
 
@@ -168,11 +175,13 @@ namespace LocalizaArquivo
 
             string[] linguagem = null;
 
+
             foreach (var item in filesModel.listaDeArquivos)
             {
                 var arquivo = item.FullName.ToLower().Substring(1);
                 var pasta = acessoApasta.ToLower();
                 linguagem = pasta.Split(spearator);
+
                 if (arquivo.Contains(linguagem[8]))
                 {
                     filesModel.listaDeArquivosSelecionados.Add(item);
@@ -215,6 +224,33 @@ namespace LocalizaArquivo
             mensagemLabel.Text = "";
         }
 
+        private void buttonEscolhePasta_Click(object sender, EventArgs e)
+        {
+            PastaModel.pastaFoiSelecionada = false;
+            if (folderBrowserPasta.ShowDialog() == DialogResult.OK)
+            {
+                PastaModel.nomeDaPasta = folderBrowserPasta.SelectedPath;
+                PastaModel.pastaFoiSelecionada = true;
 
+            }
+
+            PastaFoiSelecionadaController pasta = new PastaFoiSelecionadaController();
+            var selecionou = pasta.pastaFoiSelecionada();
+
+            if (selecionou)
+            {
+                mensagemLabel.Text = PastaModel.nomeDaPasta;
+            }
+
+
+            comboPastas.Items.Clear();
+            LocalizaPastasController.LocalizaPastas(PastaModel.nomeDaPasta);
+
+            foreach (var item in ordena.OrdernaPalavras(filesModel.listaDePastas))
+            {
+                comboPastas.Items.Add(item.ToUpper());
+            }
+
+        }
     }
 }

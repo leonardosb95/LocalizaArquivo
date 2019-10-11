@@ -41,6 +41,7 @@
             this.columArquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.folderBrowserPasta = new System.Windows.Forms.FolderBrowserDialog();
             this.buttonEscolhePasta = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label2
@@ -155,8 +156,16 @@
             this.buttonEscolhePasta.Name = "buttonEscolhePasta";
             this.buttonEscolhePasta.Size = new System.Drawing.Size(121, 23);
             this.buttonEscolhePasta.TabIndex = 15;
-            this.buttonEscolhePasta.Text = "button1";
+            this.buttonEscolhePasta.Text = "Localizar pasta";
             this.buttonEscolhePasta.UseVisualStyleBackColor = true;
+            this.buttonEscolhePasta.Click += new System.EventHandler(this.buttonEscolhePasta_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(335, 73);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(114, 23);
+            this.progressBar1.TabIndex = 16;
             // 
             // Form1
             // 
@@ -164,6 +173,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(719, 459);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.buttonEscolhePasta);
             this.Controls.Add(this.listViewResultado);
             this.Controls.Add(this.mensagemLabel);
@@ -196,6 +206,7 @@
         public System.Windows.Forms.ColumnHeader columArquivo;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserPasta;
         private System.Windows.Forms.Button buttonEscolhePasta;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

@@ -12,6 +12,7 @@ namespace LocalizaArquivo.Controllers
     {
         public static void LocalizaPastas(string caminho)
         {
+            filesModel.listaDePastas.Clear();
             DirectoryInfo diretorios = new DirectoryInfo(caminho);
             DirectoryInfo[] subPastas = diretorios.GetDirectories();
 

@@ -66,7 +66,9 @@
     <Compile Include="Controllers\LocalizaArquivosController.cs" />
     <Compile Include="Controllers\LocalizaPastasController.cs" />
     <Compile Include="Controllers\OrdenaArquivosController.cs" />
+    <Compile Include="Controllers\PastaFoiSelecionadaController.cs" />
     <Compile Include="Model\filesModel.cs" />
+    <Compile Include="Model\PastaModel.cs" />
     <Compile Include="Util\AbriDiretoriosUtil.cs" />
     <Compile Include="Util\Caminho.cs" />
     <Compile Include="Form1.cs">
